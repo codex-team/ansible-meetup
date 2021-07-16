@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+</head>
+<body>
+<pre>
+{{item | to_nice_json}}
+</pre>
+<p>
+    <img src="{{ item.path | replace('/var/www/html', '') }}" alt="CodeX Logo">
+</p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# from galaxy
+- name: n0str.ansible_role_codex_docs
+  version: 1.0
+- name: geerlingguy.docker

@@ -1,0 +1,3 @@
+[submodule "workouts/07-galaxy/codex_docs"]
+	path = workouts/07-galaxy/codex_docs
+	url = https://github.com/n0str/ansible_role_codex_docs

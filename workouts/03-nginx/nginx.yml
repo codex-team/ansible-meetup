@@ -1,0 +1,21 @@
+- hosts: all
+
+  tasks:
+    - name: Install nginx and update apt cache
+      apt:
+        name: nginx
+        update_cache: yes
+        state: latest
+
+    - name: Sync site content
+      synchronize:
+        src: site/
+        dest: /var/www/html
+        delete: yes
+        recursive: yes
+
+    - name: Enable nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes

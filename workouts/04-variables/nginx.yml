@@ -1,0 +1,36 @@
+- hosts: all
+  vars:
+    site_title: CodeX Meetup1
+
+  tasks:
+    - name: Install nginx and update apt cache
+      apt:
+        name: nginx
+        update_cache: yes
+        state: latest
+
+    - name: Sync site content
+      synchronize:
+        src: site/images/
+        dest: /var/www/html/images
+        delete: yes
+        recursive: yes
+
+    - name: Get all images
+      find:
+        paths: /var/www/html/images
+      register: images
+
+    - debug:
+        var: images
+
+    - name: Render and copy index.html
+      template:
+        src: site/index.html
+        dest: /var/www/html
+
+    - name: Enable nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes

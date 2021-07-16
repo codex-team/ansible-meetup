@@ -1,0 +1,6 @@
+---
+
+- hosts: ourhost
+
+  roles:
+    - name: geerlingguy.docker

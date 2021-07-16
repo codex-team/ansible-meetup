@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site_title }}</title>
+</head>
+<body>
+    <h1>Hello yopta</h1>
+
+{% for image in images.files %}
+    <p>
+        <h2><a href="{{ (image.path | basename).split('.') | first }}.html">{{ image.path | basename }}</a></h2>
+        <img src="{{ image.path | replace('/var/www/html', '') }}" alt="CodeX Logo">
+    </p>
+{% endfor %}
+</body>
+</html>
